@@ -4,9 +4,7 @@ A complete decentralized peer-to-peer lending platform built on Ethereum Sepolia
 
 ## 🚀 Live Demo
 
-**Access the DApp here:** [https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/](https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/)
-
-*Replace `YOUR-USERNAME` and `YOUR-REPO-NAME` with your actual GitHub username and repository name*
+**Access the DApp here:** https://farrellr25.github.io/lendingmarket/
 
 ## ⚡ Complete Features
 
