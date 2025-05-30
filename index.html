@@ -114,19 +114,26 @@
         }
         .repayment-input {
             display: flex;
-            gap: 10px;
-            align-items: center;
+            flex-direction: column;
+            gap: 8px;
             margin-top: 10px;
         }
         .repayment-input input {
-            flex: 1;
+            width: 100%;
             margin: 0;
+            box-sizing: border-box;
+        }
+        .repayment-buttons {
+            display: flex;
+            gap: 6px;
+            width: 100%;
         }
         .repayment-input button {
-            padding: 6px 8px;
-            font-size: 11px;
+            padding: 8px 6px;
+            font-size: 10px;
             white-space: nowrap;
-            flex-shrink: 0;
+            flex: 1;
+            min-width: 0;
         }
         .my-loan {
             border: 3px solid #667eea;
@@ -726,8 +733,10 @@
                             ${hasLateFee ? '<div style="color: red; font-weight: bold;">⚠️ Late fee has been applied!</div>' : ''}
                             <div class="repayment-input">
                                 <input type="number" id="repayAmount_${loan.id}" placeholder="Amount to repay" step="0.001" min="0.001" max="${ethers.utils.formatEther(remaining)}">
-                                <button onclick="makePartialRepayment(${loan.id})">Make Payment</button>
-                                <button onclick="repayFullAmount(${loan.id})" style="background-color: #28a745;">Pay Full Amount</button>
+                                <div class="repayment-buttons">
+                                    <button onclick="makePartialRepayment(${loan.id})">Pay Partial</button>
+                                    <button onclick="repayFullAmount(${loan.id})" style="background-color: #28a745;">Pay Full</button>
+                                </div>
                             </div>
                         </div>
                     `;
@@ -996,8 +1005,10 @@
                                     ${balanceInfo.hasLateFee ? '<p style="color: #dc3545;">20% late fee applied!</p>' : ''}
                                     <div class="repayment-input">
                                         <input type="number" id="repayAmount_myloans_${loan.id}" placeholder="Amount" step="0.001" max="${ethers.utils.formatEther(balanceInfo.remainingBalance)}">
-                                        <button onclick="makeRepaymentMyLoans(${loan.id}, false)">Pay Partial</button>
-                                        <button onclick="makeRepaymentMyLoans(${loan.id}, true)" style="background: #4CAF50;">Pay Full</button>
+                                        <div class="repayment-buttons">
+                                            <button onclick="makeRepaymentMyLoans(${loan.id}, false)">Pay Partial</button>
+                                            <button onclick="makeRepaymentMyLoans(${loan.id}, true)" style="background: #4CAF50;">Pay Full</button>
+                                        </div>
                                     </div>
                                 </div>
                             `;
